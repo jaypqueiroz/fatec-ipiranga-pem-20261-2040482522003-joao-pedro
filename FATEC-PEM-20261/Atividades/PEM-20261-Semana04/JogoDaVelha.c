@@ -1,3 +1,8 @@
+/*João Pedro de Queiroz Leite
+12/03/2026
+Fatec Ipiranga ADS Vespertino
+Objetivo da atividade é realizar um jogo da velha*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
