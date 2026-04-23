@@ -1,3 +1,7 @@
+//João Pedro de Queiroz Leite
+//RA: 2040482522003
+//Objetivo: Desenvolver um programa em C que gerencie o peso de uma frota de 10 pacotes, utilizando ponteiros.
+
 #include <stdio.h>
 
 #define Tam 10
@@ -10,7 +14,7 @@ void processarCarga(float *pesos, int n);
 void lerPesos(float *pesos, int n) {
     for (int i = 0; i < n; i++) {
         printf("Peso do produto %d: ", i + 1);
-        scanf("%f", pesos + i); // pesos+i aponta pro endereco do elemento i
+        scanf("%f", pesos + i);
     }
 }
 
@@ -29,7 +33,7 @@ void processarCarga(float *pesos, int n) {
         soma += *(pesos + i);
 
     media  = soma / n;
-    limite = media * 1.10; // limite = media + 10%
+    limite = media * 1.10; 
 
     printf("\nMedia: %.2f kg\n", media);
     printf("Limite (+10%%): %.2f kg\n", limite);
@@ -38,7 +42,7 @@ void processarCarga(float *pesos, int n) {
     for (int i = 0; i < n; i++) {
         if (*(pesos + i) > limite) {
             printf("Produto %d (%.2f kg) passou do limite, reduzindo 5%%.\n", i + 1, *(pesos + i));
-            *(pesos + i) *= 0.95; // reduz 5% multiplicando por 0.95
+            *(pesos + i) *= 0.95;
         }
     }
 }
