@@ -1,6 +1,8 @@
 //João Pedro de Queiroz Leite
 //RA: 2040482522003
+// Análise e Desenvolvimeno de Sistemas - Vespertino
 //Objetivo: Desenvolver um programa em C que gerencie o peso de uma frota de 10 pacotes, utilizando ponteiros.
+//Data: 22/04/2026
 
 #include <stdio.h>
 
