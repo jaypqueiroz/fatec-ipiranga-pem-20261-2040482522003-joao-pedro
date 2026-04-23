@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+#define Tam 10
+
+void lerPesos(float *pesos, int n);
+void exibirVetor(float *pesos, int n);
+void processarCarga(float *pesos, int n);
+
+// le os pesos digitados pelo usuario
+void lerPesos(float *pesos, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Peso do produto %d: ", i + 1);
+        scanf("%f", pesos + i); // pesos+i aponta pro endereco do elemento i
+    }
+}
+
+// mostra todos os produtos e seus pesos
+void exibirVetor(float *pesos, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Produto %02d: %.2f kg\n", i + 1, *(pesos + i));
+    }
+}
+
+// calcula a media, define o limite e corrige os que passaram
+void processarCarga(float *pesos, int n) {
+    float soma = 0, media, limite;
+
+    for (int i = 0; i < n; i++)
+        soma += *(pesos + i);
+
+    media  = soma / n;
+    limite = media * 1.10; // limite = media + 10%
+
+    printf("\nMedia: %.2f kg\n", media);
+    printf("Limite (+10%%): %.2f kg\n", limite);
+    printf("------------------------------\n");
+
+    for (int i = 0; i < n; i++) {
+        if (*(pesos + i) > limite) {
+            printf("Produto %d (%.2f kg) passou do limite, reduzindo 5%%.\n", i + 1, *(pesos + i));
+            *(pesos + i) *= 0.95; // reduz 5% multiplicando por 0.95
+        }
+    }
+}
+
+int main() {
+    float pesos[Tam];
+
+    printf("=== Cadastro de Carga ===\n");
+    lerPesos(pesos, Tam);
+
+    printf("\n=== Antes do Processamento ===\n");
+    exibirVetor(pesos, Tam);
+
+    processarCarga(pesos, Tam);
+
+    printf("\n=== Depois do Processamento ===\n");
+    exibirVetor(pesos, Tam);
+
+    return 0;
+}
